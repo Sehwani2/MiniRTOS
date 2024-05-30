@@ -2,6 +2,10 @@
 #include "HalUart.h"
 #include "stdio.h"
 
+#define PRINTF_BUF_LEN 1024
+
+static char printf_buf[PRINTF_BUF_LEN]; // 1KB
+
 uint32_t putstr(const char* s)
 {
 	uint32_t c =0;
@@ -77,5 +81,34 @@ uint32_t vsprintf(char* buf, const char* format, va_list arg)
 	}
 
 	buf[c] = '\0';
+	return c;
+}
+
+uint32_t utoa(char* buf, uint32_t val, utoa_t base)
+{
+	const char asciibase = 'a';
+
+	uint32_t c = 0;
+	int32_t	idx = 0;
+	char	tmp[11];   // It is big enough for store 32 bit int 
+	
+	do{
+		uint32_t t = val % (uint32_t)base;
+		if(t >= 10)
+		{
+			t += asciibase - '0' - 10;
+		}
+		tmp[idx] = (t + '0');
+		val /= base;
+		idx++;
+	}while(val);
+
+	//reverse
+	idx--;
+	while(idx >= 0)
+	{
+		buf[c++] = tmp[idx];
+		idx--;
+	}
 	return c;
 }

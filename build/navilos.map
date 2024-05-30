@@ -1,3 +1,9 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+                              build/stdio.o (__aeabi_uidiv)
+/usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
+                              /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 
 Memory Configuration
 
@@ -6,67 +12,84 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
-                0x0000000000000000                . = 0x0
-
-.text           0x0000000000000000      0x348
- *(vector_start)
- *(.text .rodata)
- .text          0x0000000000000000       0xd4 build/Entry.os
-                0x0000000000000000                vector_start
- .text          0x00000000000000d4       0xa8 build/Main.o
-                0x00000000000000d4                main
- .rodata        0x000000000000017c        0xd build/Main.o
- .text          0x0000000000000189        0x0 build/Regs.o
- *fill*         0x0000000000000189        0x3 
- .text          0x000000000000018c      0x15c build/Uart.o
-                0x000000000000018c                Hal_uart_init
-                0x0000000000000204                Hal_uart_put_char
-                0x0000000000000260                Hal_uart_get_char
- .text          0x00000000000002e8       0x60 build/stdio.o
-                0x00000000000002e8                putstr
-
-.glue_7         0x0000000000000348        0x0
- .glue_7        0x0000000000000348        0x0 linker stubs
-
-.glue_7t        0x0000000000000348        0x0
- .glue_7t       0x0000000000000348        0x0 linker stubs
-
-.vfp11_veneer   0x0000000000000348        0x0
- .vfp11_veneer  0x0000000000000348        0x0 linker stubs
-
-.v4_bx          0x0000000000000348        0x0
- .v4_bx         0x0000000000000348        0x0 linker stubs
-
-.iplt           0x0000000000000348        0x0
- .iplt          0x0000000000000348        0x0 build/Entry.os
-
-.rel.dyn        0x0000000000000348        0x0
- .rel.iplt      0x0000000000000348        0x0 build/Entry.os
-
-.data           0x0000000000000348        0x4
- *(.data)
- .data          0x0000000000000348        0x0 build/Entry.os
- .data          0x0000000000000348        0x0 build/Main.o
- .data          0x0000000000000348        0x4 build/Regs.o
-                0x0000000000000348                Uart
- .data          0x000000000000034c        0x0 build/Uart.o
- .data          0x000000000000034c        0x0 build/stdio.o
-
-.igot.plt       0x000000000000034c        0x0
- .igot.plt      0x000000000000034c        0x0 build/Entry.os
-
-.bss            0x000000000000034c        0x0
- *(.bss)
- .bss           0x000000000000034c        0x0 build/Entry.os
- .bss           0x000000000000034c        0x0 build/Main.o
- .bss           0x000000000000034c        0x0 build/Regs.o
- .bss           0x000000000000034c        0x0 build/Uart.o
- .bss           0x000000000000034c        0x0 build/stdio.o
 LOAD build/Entry.os
 LOAD build/Main.o
 LOAD build/Regs.o
 LOAD build/Uart.o
 LOAD build/stdio.o
+LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000      0x990
+ *(vector_start)
+ *(.text .rodata)
+ .text          0x0000000000000000       0xd4 build/Entry.os
+                0x0000000000000000                vector_start
+ .text          0x00000000000000d4      0x14c build/Main.o
+                0x00000000000000d4                main
+ .rodata        0x0000000000000220       0x9f build/Main.o
+ .text          0x00000000000002bf        0x0 build/Regs.o
+ *fill*         0x00000000000002bf        0x1 
+ .text          0x00000000000002c0      0x15c build/Uart.o
+                0x00000000000002c0                Hal_uart_init
+                0x0000000000000338                Hal_uart_put_char
+                0x0000000000000394                Hal_uart_get_char
+ .text          0x000000000000041c      0x454 build/stdio.o
+                0x000000000000041c                putstr
+                0x000000000000047c                debug_printf
+                0x00000000000004cc                vsprintf
+                0x000000000000074c                utoa
+ .rodata        0x0000000000000870        0x7 build/stdio.o
+ *fill*         0x0000000000000877        0x1 
+ .text          0x0000000000000878      0x114 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+                0x0000000000000878                __udivsi3
+                0x0000000000000878                __aeabi_uidiv
+                0x000000000000096c                __aeabi_uidivmod
+ .text          0x000000000000098c        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
+                0x000000000000098c                __aeabi_ldiv0
+                0x000000000000098c                __aeabi_idiv0
+
+.glue_7         0x0000000000000990        0x0
+ .glue_7        0x0000000000000990        0x0 linker stubs
+
+.glue_7t        0x0000000000000990        0x0
+ .glue_7t       0x0000000000000990        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000000990        0x0
+ .vfp11_veneer  0x0000000000000990        0x0 linker stubs
+
+.v4_bx          0x0000000000000990        0x0
+ .v4_bx         0x0000000000000990        0x0 linker stubs
+
+.iplt           0x0000000000000990        0x0
+ .iplt          0x0000000000000990        0x0 build/Entry.os
+
+.rel.dyn        0x0000000000000990        0x0
+ .rel.iplt      0x0000000000000990        0x0 build/Entry.os
+
+.data           0x0000000000000990        0x4
+ *(.data)
+ .data          0x0000000000000990        0x0 build/Entry.os
+ .data          0x0000000000000990        0x0 build/Main.o
+ .data          0x0000000000000990        0x4 build/Regs.o
+                0x0000000000000990                Uart
+ .data          0x0000000000000994        0x0 build/Uart.o
+ .data          0x0000000000000994        0x0 build/stdio.o
+ .data          0x0000000000000994        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .data          0x0000000000000994        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
+
+.igot.plt       0x0000000000000994        0x0
+ .igot.plt      0x0000000000000994        0x0 build/Entry.os
+
+.bss            0x0000000000000994      0x400
+ *(.bss)
+ .bss           0x0000000000000994        0x0 build/Entry.os
+ .bss           0x0000000000000994        0x0 build/Main.o
+ .bss           0x0000000000000994        0x0 build/Regs.o
+ .bss           0x0000000000000994        0x0 build/Uart.o
+ .bss           0x0000000000000994      0x400 build/stdio.o
+ .bss           0x0000000000000d94        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000000d94        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 OUTPUT(build/navilos.axf elf32-littlearm)
 LOAD linker stubs
 
@@ -82,6 +105,10 @@ LOAD linker stubs
                 0x000000000000007b       0x2f build/Uart.o
  .ARM.attributes
                 0x00000000000000aa       0x2f build/stdio.o
+ .ARM.attributes
+                0x00000000000000d9       0x1c /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000000000000f5       0x1c /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
 .comment        0x0000000000000000       0x33
  .comment       0x0000000000000000       0x33 build/Main.o
@@ -90,28 +117,34 @@ LOAD linker stubs
  .comment       0x0000000000000033       0x34 build/Uart.o
  .comment       0x0000000000000033       0x34 build/stdio.o
 
-.debug_line     0x0000000000000000      0x302
+.debug_line     0x0000000000000000      0x4d2
  .debug_line    0x0000000000000000       0x6d build/Entry.os
- .debug_line    0x000000000000006d       0xa6 build/Main.o
- .debug_line    0x0000000000000113       0x70 build/Regs.o
- .debug_line    0x0000000000000183       0xf3 build/Uart.o
- .debug_line    0x0000000000000276       0x8c build/stdio.o
+ .debug_line    0x000000000000006d       0xbc build/Main.o
+ .debug_line    0x0000000000000129       0x70 build/Regs.o
+ .debug_line    0x0000000000000199       0xf3 build/Uart.o
+ .debug_line    0x000000000000028c      0x17b build/stdio.o
+ .debug_line    0x0000000000000407       0x74 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .debug_line    0x000000000000047b       0x57 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
-.debug_info     0x0000000000000000     0x18ae
+.debug_info     0x0000000000000000     0x1b46
  .debug_info    0x0000000000000000       0x26 build/Entry.os
- .debug_info    0x0000000000000026       0xce build/Main.o
- .debug_info    0x00000000000000f4      0xb46 build/Regs.o
- .debug_info    0x0000000000000c3a      0xbb5 build/Uart.o
- .debug_info    0x00000000000017ef       0xbf build/stdio.o
+ .debug_info    0x0000000000000026      0x11d build/Main.o
+ .debug_info    0x0000000000000143      0xb46 build/Regs.o
+ .debug_info    0x0000000000000c89      0xbb5 build/Uart.o
+ .debug_info    0x000000000000183e      0x2bc build/stdio.o
+ .debug_info    0x0000000000001afa       0x26 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .debug_info    0x0000000000001b20       0x26 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
-.debug_abbrev   0x0000000000000000      0x38c
+.debug_abbrev   0x0000000000000000      0x490
  .debug_abbrev  0x0000000000000000       0x14 build/Entry.os
- .debug_abbrev  0x0000000000000014       0x85 build/Main.o
- .debug_abbrev  0x0000000000000099       0xf8 build/Regs.o
- .debug_abbrev  0x0000000000000191      0x172 build/Uart.o
- .debug_abbrev  0x0000000000000303       0x89 build/stdio.o
+ .debug_abbrev  0x0000000000000014       0xb9 build/Main.o
+ .debug_abbrev  0x00000000000000cd       0xf8 build/Regs.o
+ .debug_abbrev  0x00000000000001c5      0x172 build/Uart.o
+ .debug_abbrev  0x0000000000000337      0x131 build/stdio.o
+ .debug_abbrev  0x0000000000000468       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x000000000000047c       0x14 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
-.debug_aranges  0x0000000000000000       0x98
+.debug_aranges  0x0000000000000000       0xd8
  .debug_aranges
                 0x0000000000000000       0x20 build/Entry.os
  .debug_aranges
@@ -122,19 +155,26 @@ LOAD linker stubs
                 0x0000000000000058       0x20 build/Uart.o
  .debug_aranges
                 0x0000000000000078       0x20 build/stdio.o
+ .debug_aranges
+                0x0000000000000098       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x00000000000000b8       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
-.debug_str      0x0000000000000000      0x46e
+.debug_str      0x0000000000000000      0x5ee
  .debug_str     0x0000000000000000       0x34 build/Entry.os
- .debug_str     0x0000000000000034       0xde build/Main.o
-                                        0x12d (size before relaxing)
- .debug_str     0x0000000000000112      0x302 build/Regs.o
+ .debug_str     0x0000000000000034      0x104 build/Main.o
+                                        0x158 (size before relaxing)
+ .debug_str     0x0000000000000138      0x366 build/Regs.o
                                         0x40e (size before relaxing)
- .debug_str     0x0000000000000414       0x47 build/Uart.o
+ .debug_str     0x000000000000049e       0x47 build/Uart.o
                                         0x44d (size before relaxing)
- .debug_str     0x000000000000045b       0x13 build/stdio.o
-                                        0x124 (size before relaxing)
+ .debug_str     0x00000000000004e5       0x7c build/stdio.o
+                                        0x199 (size before relaxing)
+ .debug_str     0x0000000000000561       0x8d /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
+ .debug_str     0x00000000000005ee       0x8d /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x0000000000000000       0xec
- .debug_frame   0x0000000000000000       0x4c build/Main.o
- .debug_frame   0x000000000000004c       0x70 build/Uart.o
- .debug_frame   0x00000000000000bc       0x30 build/stdio.o
+.debug_frame    0x0000000000000000      0x1a8
+ .debug_frame   0x0000000000000000       0x6c build/Main.o
+ .debug_frame   0x000000000000006c       0x70 build/Uart.o
+ .debug_frame   0x00000000000000dc       0xac build/stdio.o
+ .debug_frame   0x0000000000000188       0x20 /usr/lib/gcc/arm-none-eabi/10.3.1/libgcc.a(_udivsi3.o)
