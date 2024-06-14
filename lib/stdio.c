@@ -111,4 +111,4 @@ uint32_t utoa(char* buf, uint32_t val, utoa_t base)
 		idx--;
 	}
 	return c;
-}
+
