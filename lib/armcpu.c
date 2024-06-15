@@ -1,4 +1,4 @@
-;
+
 #include "armcpu.h"
 
 void enable_irq(void)

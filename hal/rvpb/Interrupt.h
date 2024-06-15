@@ -1,9 +1,3 @@
-/*
- * Interrupt.h
- *
- *  Created on: Sep 21, 2018
- *      Author: maanu
- */
 
 #ifndef HAL_RVPB_INTERRUPT_H_
 #define HAL_RVPB_INTERRUPT_H_
