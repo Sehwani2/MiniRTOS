@@ -1,4 +1,3 @@
-
 #ifndef LIB_ARMCPU_H_
 #define LIB_ARMCPU_H_
 

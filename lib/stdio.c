@@ -1,17 +1,10 @@
-/*
- * stdio.c
- *
- *  Created on: Sep 17, 2018
- *      Author: maanu
- */
-
 #include "stdint.h"
 #include "HalUart.h"
 #include "stdio.h"
 
 #define PRINTF_BUF_LEN  1024
 
-static char printf_buf[PRINTF_BUF_LEN];   // 1KB
+static char sPrintf_buf[PRINTF_BUF_LEN];   // 1KB
 
 uint32_t putstr(const char* s)
 {
@@ -28,10 +21,10 @@ uint32_t debug_printf(const char* format, ...)
 {
     va_list args;
     va_start(args, format);
-    vsprintf(printf_buf, format, args);
+    vsprintf(sPrintf_buf, format, args);
     va_end(args);
 
-    return putstr(printf_buf);
+    return putstr(sPrintf_buf);
 }
 
 uint32_t vsprintf(char* buf, const char* format, va_list arg)

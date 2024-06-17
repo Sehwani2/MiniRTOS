@@ -1,4 +1,3 @@
-
 #ifndef HAL_HALINTERRUPT_H_
 #define HAL_HALINTERRUPT_H_
 
