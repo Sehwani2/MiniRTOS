@@ -1,4 +1,3 @@
-
 #ifndef HAL_HALUART_H_
 #define HAL_HALUART_H_
 
