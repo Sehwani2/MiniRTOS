@@ -1,3 +1,4 @@
+
 #ifndef KERNEL_TASK_H_
 #define KERNEL_TASK_H_
 
@@ -28,5 +29,6 @@ void     Kernel_task_start(void);
 uint32_t Kernel_task_create(KernelTaskFunc_t startFunc);
 void     Kernel_task_scheduler(void);
 void     Kernel_task_context_switching(void);
+uint32_t Kernel_task_get_current_task_id(void);
 
 #endif /* KERNEL_TASK_H_ */
